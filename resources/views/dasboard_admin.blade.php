@@ -36,21 +36,19 @@
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-fw fa-futbol" style="color: #10b981;"></i>
                 </div>
-                <div>MiniSoccer Book</div>
+                <div style="white-space: nowrap; font-size: 16px;">
+                    Minisoccer <span style="color: #10b981;">Book</span>
+                </div>
             </a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active" style="margin: 2px 6px;">
-
+            <li class="nav-item active">
                 <a class="nav-link" href="index.html"
-                    style="background-color: #dff7e9;color: #10b981;border-radius: 3px;padding: 8px 10px;">
-                    <i class="fas fa-fw fa-home"
-                        style="color: #10b981;width: 12px;text-align: center;margin-right: 2px;"></i>
+                    style="background-color: #dff7e9; color: #10b981; border-radius: 3px; padding: 8px 16px;">
+                    <i class="fas fa-fw fa-home" style="color: #10b981;"></i>
                     <span>Dashboard</span>
                 </a>
+            </li>
             </li>
             <!-- Nav Item - Customer Data -->
             <li class="nav-item">
