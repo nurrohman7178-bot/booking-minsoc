@@ -29,4 +29,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function admin()
+    {
+        return $this->hasOne(admin::class, 'id_user', 'id_user');
+    }
+
+    public function pelanggan()
+    {
+        return $this->hasOne(pelanggan::class, 'id_user', 'id_user');
+    }
 }

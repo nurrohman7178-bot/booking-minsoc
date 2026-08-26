@@ -13,3 +13,6 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth');
+Route::get('/', function () {return view('home');
+
+});
