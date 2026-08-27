@@ -134,9 +134,6 @@
                 MiniSoccer<span style="color: #10b981;">Book</span>
             </h2>
         </div>
-
-
-
         <div class="welcome">
             <h1>Welcome Back!</h1>
             <p>
@@ -162,13 +159,6 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Masukkan password Anda" required>
             </div>
-
-            <div class="form-group">
-                <label for="password_confirmation">Konfirmasi Password</label>
-                <input type="password" id="password_confirmation" name="password_confirmation"
-                    placeholder="Konfirmasi password Anda" required>
-            </div>
-
             <button type="submit" class="login-button">
                 Login
             </button>
