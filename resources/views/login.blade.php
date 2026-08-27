@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -158,33 +159,24 @@
             </p>
         </div>
 
-    @if ($errors->any())
-        <div class="error">
-            {{ $errors->first() }}
-        </div>
-    @endif
+        @if ($errors->any())
+            <div class="error">
+                {{ $errors->first() }}
+            </div>
+        @endif
 
-    <form action="{{ url('/login') }}" method="POST">
-        @csrf
+        <form action="{{ url('/login') }}" method="POST">
+            @csrf
 
-        <div class="form-group">
-            <label for="name">Nama Lengkap</label>
-            <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Masukkan nama lengkap Anda">
-        </div>
+            <div class="form-group">
+                <label for="name">Nama Lengkap</label>
+                <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap Anda">
+            </div>
 
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Contoh: nama@email.com"
-                required>
-        </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Contoh: nama@email.com" required>
+            </div>
 
             <div class="form-group">
                 <label for="password">Password</label>
@@ -202,12 +194,15 @@
             </button>
         </form>
 
-    <div class="register">
-        Belum punya akun?
-        <a href="#">Daftar di sini</a>
+        <div class="register">
+            Belum punya akun?
+            <a class="small" href="{{ route('register') }}" style="color:#10b981;">
+                Daftar di sini
+            </a>
+        </div>
+
     </div>
 
-</div>
-
 </body>
+
 </html>
