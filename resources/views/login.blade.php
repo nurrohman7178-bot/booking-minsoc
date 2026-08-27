@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - MiniSoccer Book</title>
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
     <style>
         * {
             box-sizing: border-box;
@@ -29,6 +28,20 @@
             padding: 45px;
             border-radius: 22px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .logo h2 {
+            color: #172b24;
+            font-size: 25px;
+        }
+
+        .logo span {
+            color: #13b981;
         }
 
         .welcome {
@@ -134,6 +147,9 @@
                 MiniSoccer<span style="color: #10b981;">Book</span>
             </h2>
         </div>
+
+
+
         <div class="welcome">
             <h1>Welcome Back!</h1>
             <p>
@@ -142,35 +158,56 @@
             </p>
         </div>
 
-        @if ($errors->any())
-            <div class="error">
-                {{ $errors->first() }}
-            </div>
-        @endif
+    @if ($errors->any())
+        <div class="error">
+            {{ $errors->first() }}
+        </div>
+    @endif
 
-        <form action="{{ url('/login') }}" method="POST">
-            @csrf
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Contoh: nama@email.com" required>
-            </div>
+    <form action="{{ url('/login') }}" method="POST">
+        @csrf
+
+        <div class="form-group">
+            <label for="name">Nama Lengkap</label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Masukkan nama lengkap Anda">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Contoh: nama@email.com"
+                required>
+        </div>
 
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Masukkan password Anda" required>
             </div>
+
+            <div class="form-group">
+                <label for="password_confirmation">Konfirmasi Password</label>
+                <input type="password" id="password_confirmation" name="password_confirmation"
+                    placeholder="Konfirmasi password Anda" required>
+            </div>
+
             <button type="submit" class="login-button">
                 Login
             </button>
         </form>
 
-        <div class="register">
-            Belum punya akun?
-            <a href="#">Daftar di sini</a>
-        </div>
-
+    <div class="register">
+        Belum punya akun?
+        <a href="#">Daftar di sini</a>
     </div>
 
-</body>
+</div>
 
+</body>
 </html>
