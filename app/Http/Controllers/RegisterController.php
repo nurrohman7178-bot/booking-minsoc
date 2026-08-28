@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\User;
+use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
+
 class RegisterController extends Controller
 {
     public function showRegistrationForm()
@@ -17,26 +19,25 @@ class RegisterController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
-            'address' => 'required|string',
-            'identity_number' => 'required|string|max:50|unique:users,identity_number',
-            'phone' => 'required|string|max:20',
-            'password' => 'required|string|min:8|confirmed',
+            'alamat' => 'required|string|max:255',
+            'no_telepon' => 'required|string|max:20',
+            'password' => 'required|min:6|confirmed',
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'address' => $request->address,
-            'identity_number' => $request->identity_number,
-            'phone' => $request->phone,
             'password' => Hash::make($request->password),
             'role' => 'pelanggan',
         ]);
 
-        Auth::login($user);
-        return redirect('/')->with(
-            'success',
-            'Akun berhasil dibuat!'
-        );
+        Pelanggan::create([
+            'id_user' => $user->id,
+            'alamat' => $request->alamat,
+            'no_telepon' => $request->no_telepon,
+        ]);
+
+        return redirect()->route('login')
+            ->with('success', 'Registrasi berhasil! Silakan login.');
     }
 }

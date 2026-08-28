@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
@@ -14,14 +13,8 @@ use Illuminate\Notifications\Notifiable;
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
-    /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
     protected function casts(): array
     {
         return [
@@ -29,13 +22,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
     public function admin()
     {
-        return $this->hasOne(admin::class, 'id_user', 'id_user');
+        return $this->hasOne(Admin::class, 'id_user', 'id');
     }
 
     public function pelanggan()
     {
-        return $this->hasOne(pelanggan::class, 'id_user', 'id_user');
+        return $this->hasOne(Pelanggan::class, 'id_user', 'id');
     }
 }

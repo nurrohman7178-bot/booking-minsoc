@@ -8,20 +8,26 @@ class Pelanggan extends Model
 {
     protected $table = 'pelanggan';
 
+    protected $primaryKey = 'id_pelanggan';
+
     protected $fillable = [
         'id_user',
+        'nama',
         'no_telepon',
         'alamat',
-        'no_identitas',
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'id_user', 'id_user');
+        return $this->belongsTo(User::class, 'id_user', 'id');
     }
 
     public function bookings()
     {
-        return $this->hasMany(Booking::class, 'id_pelanggan', 'id_pelanggan');
+        return $this->hasMany(
+            Booking::class,
+            'id_pelanggan',
+            'id_pelanggan'
+        );
     }
 }

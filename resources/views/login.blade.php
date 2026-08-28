@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - MiniSoccer Book</title>
-
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <style>
         * {
             box-sizing: border-box;
@@ -149,8 +149,6 @@
             </h2>
         </div>
 
-
-
         <div class="welcome">
             <h1>Welcome Back!</h1>
             <p>
@@ -167,12 +165,6 @@
 
         <form action="{{ url('/login') }}" method="POST">
             @csrf
-
-            <div class="form-group">
-                <label for="name">Nama Lengkap</label>
-                <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap Anda">
-            </div>
-
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Contoh: nama@email.com" required>
@@ -182,13 +174,6 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Masukkan password Anda" required>
             </div>
-
-            <div class="form-group">
-                <label for="password_confirmation">Konfirmasi Password</label>
-                <input type="password" id="password_confirmation" name="password_confirmation"
-                    placeholder="Konfirmasi password Anda" required>
-            </div>
-
             <button type="submit" class="login-button">
                 Login
             </button>

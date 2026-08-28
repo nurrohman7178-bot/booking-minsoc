@@ -20,7 +20,6 @@ return new class extends Migration
 
             $table->string('no_telepon', 15);
             $table->text('alamat');
-            $table->string('no_identitas', 20);
 
             $table->timestamps();
         });
