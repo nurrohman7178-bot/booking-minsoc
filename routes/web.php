@@ -19,9 +19,17 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::resource('customer', PelangganController::class)->names('customer');
-    Route::resource('booking', BookingController::class)->names('booking');
-    Route::resource('schedule', JadwalController::class)->names('schedule');
-    Route::resource('notification', NotifController::class)->names('notification');
-    Route::resource('setting', PengaturanController::class)->names('setting');
+    // Alias route yang dipakai oleh sidebar Blade
+    Route::get('/customer', [PelangganController::class, 'index'])->name('customer');
+    Route::get('/booking', [BookingController::class, 'index'])->name('booking');
+    Route::get('/schedule', [JadwalController::class, 'index'])->name('schedule');
+    Route::get('/notification', [NotifController::class, 'index'])->name('notification');
+    Route::get('/setting', [PengaturanController::class, 'index'])->name('setting');
+
+    // Resource routes untuk CRUD
+    Route::resource('customer', PelangganController::class);
+    Route::resource('booking', BookingController::class);
+    Route::resource('schedule', JadwalController::class);
+    Route::resource('notification', NotifController::class);
+    Route::resource('setting', PengaturanController::class);
 });
