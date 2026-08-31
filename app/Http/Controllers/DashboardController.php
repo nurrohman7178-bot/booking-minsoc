@@ -12,19 +12,14 @@ class DashboardController extends Controller
         $user = auth()->user();
 
         if ($user->role === 'admin') {
-
             $totalPelanggan = Pelanggan::count();
             $totalBooking = Booking::count();
 
-            return view('dashboard_admin', compact(
-                'totalPelanggan',
-                'totalBooking'
-            ));
+            return view('admin.dashboard', compact('totalPelanggan', 'totalBooking'));
         }
 
         if ($user->role === 'pelanggan') {
-
-            return view('dashboard_pelanggan');
+            return view('pelanggan.dashboard');
         }
 
         abort(403, 'Role tidak dikenali.');
