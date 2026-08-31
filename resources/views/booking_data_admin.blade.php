@@ -76,7 +76,7 @@
             </li>
             <!-- Nav Item - Schedule Data -->
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('customer') }}" style="color: #333;">
+                <a class="nav-link" href="{{ route('pelanggan') }}" style="color: #333;">
                     <i class="fas fa-fw fa-calendar-alt" style="color: #555;"></i>
                     <span>Schedule Data</span>
                 </a>

@@ -25,6 +25,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware('auth')
     ->name('dashboard');
 
-Route::resource('customer', PelangganController::class);
+Route::resource('pelanggan', PelangganController::class);
 
 Route::resource('booking', BookingController::class);
