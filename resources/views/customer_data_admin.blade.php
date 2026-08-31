@@ -1,3 +1,11 @@
+{{-- @foreach ($pelanggan as $p)
+    <tr>
+        <td>{{ $p->id }}</td>
+        <td>{{ $p->user->name }}</td>
+        <td>{{ $p->no_telepon }}</td>
+        <td>{{ $p->alamat }}</td>
+    </tr>
+@endforeach --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,18 +61,18 @@
             </a>
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link"
-                    style="background-color: #dff7e9; color: #10b981; border-radius: 3px; padding: 8px 16px;">
-                    <i class="fas fa-fw fa-home" style="color: #10b981;"></i>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('dashboard') }}" style="color: #333;">
+                    <i class="fas fa-fw fa-home" style="color: #555;"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             </li>
             <!-- Nav Item - Customer Data -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('customer') }}" style="color: #333;">
-                    <i class="fas fa-fw fa-users" style="color: #555;"></i>
+            <li class="nav-item active">
+                <a class="nav-link"
+                    style="background-color: #dff7e9; color: #10b981; border-radius: 3px; padding: 8px 16px;">
+                    <i class="fas fa-fw fa-users" style="color: #10b981;"></i>
                     <span>Customer Data</span>
                 </a>
             </li>
@@ -177,109 +185,6 @@
                         </li>
                     </ul>
                 </nav>
-
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard!!</h1>
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Customers data</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalPelanggan }}
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-users fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Total Booking Data</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalBooking }}
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Total unscheduled time this week</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar-alt fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Content Row -->
-
-                    <div class="row">
-
-                        <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Grafik Booking Data</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pie Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Logout Modal-->
                     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">

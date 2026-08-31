@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
-    public function Pelanggan()
+    protected $table = 'booking';
+    public function pelanggan()
     {
         return $this->belongsTo(Pelanggan::class, 'id_pelanggan', 'id_pelanggan');
     }
