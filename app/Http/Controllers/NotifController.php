@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Notifikasi;
+
 class NotifController extends Controller
 {
     /**
@@ -11,7 +13,7 @@ class NotifController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.notification.index');
     }
 
     /**

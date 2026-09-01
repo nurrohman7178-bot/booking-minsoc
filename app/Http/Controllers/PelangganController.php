@@ -13,8 +13,8 @@ class PelangganController extends Controller
      */
     public function index()
     {
-        $pelanggan = Pelanggan::all();
-        return view('customer_data_admin', compact('pelanggan'));
+        $customer = Pelanggan::all();
+        return view('admin.customer.index', compact('customer'));
     }
 
     /**
