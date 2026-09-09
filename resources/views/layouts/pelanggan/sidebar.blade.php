@@ -13,27 +13,27 @@
     /* MENU AKTIF */
     .sidebar .nav-item.active .nav-link {
         background-color: #dff7e9;
-        color: #10b981;
+        color: #2563EB;
         border-radius: 3px;
     }
 
     .sidebar .nav-item.active .nav-link i {
-        color: #10b981;
+        color: #2563EB;
     }
 
     .sidebar .nav-item.active .nav-link:hover {
-        background-color: #dff7e9;
-        color: #10b981;
+        background-color: #dbe4f3;
+        color: #2563EB;
     }
 </style>
 <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar" style="background-color:white;">
     {{-- Brand --}}
     <a class="sidebar-brand d-flex align-items-center justify-content-center">
         <div class="sidebar-brand-icon">
-            <i class="fas fa-fw fa-futbol" style="color:#10b981;"></i>
+            <i class="fas fa-fw fa-futbol" style="color:#2563EB;"></i>
         </div>
         <div class="sidebar-brand-text">
-            Minisoccer <span style="color:#10b981;">Book</span>
+            Minisoccer <span style="color:#2563EB;">Book</span>
         </div>
     </a>
 
@@ -45,11 +45,11 @@
         </a>
     </li>
 
-    {{-- Customer --}}
-    <li class="nav-item {{ request()->routeIs('customer.*') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('customer.index') }}">
+    {{-- Schedule --}}
+    <li class="nav-item {{ request()->routeIs('schedule.*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('schedule.index') }}">
             <i class="fas fa-fw fa-users"></i>
-            <span>Customers</span>
+            <span>Field Schedule</span>
         </a>
     </li>
 
@@ -57,23 +57,15 @@
     <li class="nav-item {{ request()->routeIs('booking.*') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('booking.index') }}">
             <i class="fas fa-fw fa-calendar-check"></i>
-            <span>Booking</span>
+            <span>My Booking</span>
         </a>
     </li>
 
-    {{-- Schedule --}}
-    <li class="nav-item {{ request()->routeIs('schedule.*') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('schedule.index') }}">
+    {{-- History --}}
+    <li class="nav-item {{ request()->routeIs('history.*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('history.index') }}">
             <i class="fas fa-fw fa-calendar-alt"></i>
-            <span>Schedule</span>
-        </a>
-    </li>
-
-    {{-- Notification --}}
-    <li class="nav-item {{ request()->routeIs('notification.*') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('notification.index') }}">
-            <i class="fas fa-fw fa-bell"></i>
-            <span>Notification</span>
+            <span>History</span>
         </a>
     </li>
 

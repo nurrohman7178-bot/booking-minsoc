@@ -32,4 +32,5 @@ use App\Http\Controllers\PengaturanController;
     Route::resource('schedule', JadwalController::class);
     Route::resource('notification', NotifController::class);
     Route::resource('setting', PengaturanController::class);
+    Route::resource('history', HistoryController::class);
 });

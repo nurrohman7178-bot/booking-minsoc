@@ -195,7 +195,7 @@
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+                    <input type="email" id="email" name="email" placeholder="Contoh:nama@email.com" required>
                 </div>
 
                 <div class="form-group">
