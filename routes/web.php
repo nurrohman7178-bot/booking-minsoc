@@ -9,6 +9,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\NotifController;
 use App\Http\Controllers\PengaturanController;
+use App\Http\Controllers\HistoryController;
 
     Route::get('/login', [AuthController::class, 'index'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->name('login.process');

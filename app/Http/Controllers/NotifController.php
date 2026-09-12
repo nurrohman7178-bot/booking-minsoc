@@ -13,7 +13,7 @@ class NotifController extends Controller
      */
     public function index()
     {
-        return view('admin.notification.index');
+        return view('admin.notif');
     }
 
     /**
