@@ -69,7 +69,43 @@ class BookingController extends Controller
     }
 
     public function show(string $id) {}
-    public function edit(string $id) {}
-    public function update(Request $request, string $id) {}
+
+    public function edit(string $id)
+    {
+        return redirect()->route('booking.index');
+    }
+
+    public function update(Request $request, string $id)
+    {
+        if (auth()->user()->role !== 'admin') {
+            abort(403);
+        }
+
+        $request->validate([
+            'status' => 'required|in:dikonfirmasi,ditolak',
+        ]);
+
+        $booking = Booking::with('jadwal')->findOrFail($id);
+
+        if ($booking->status !== 'menunggu') {
+            return back()->with('error', 'Booking ini sudah diproses sebelumnya.');
+        }
+
+        $booking->status = $request->status;
+        $booking->save();
+
+        // Jika booking ditolak, jadwal dikembalikan menjadi tersedia.
+        if ($request->status === 'ditolak' && $booking->jadwal) {
+            $booking->jadwal->status = 'tersedia';
+            $booking->jadwal->save();
+        }
+
+        $pesan = $request->status === 'dikonfirmasi'
+            ? 'Booking berhasil dikonfirmasi.'
+            : 'Booking berhasil ditolak dan jadwal kembali tersedia.';
+
+        return redirect()->route('booking.index')->with('success', $pesan);
+    }
+
     public function destroy(string $id) {}
 }
