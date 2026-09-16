@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Models\History;
-
+use App\Models\Booking;
 
 class HistoryController extends Controller
 {
     public function index()
     {
-        return view('pelanggan.history.index');
+        $pelanggan = auth()->user()->pelanggan;
+
+        $history = $pelanggan
+            ? Booking::with('jadwal')
+                ->where('id_pelanggan', $pelanggan->id_pelanggan)
+                ->latest()
+                ->get()
+            : collect();
+
+        return view('pelanggan.history.index', compact('history'));
     }
 }
